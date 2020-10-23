@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            min-width: 550px;
+        }
+
+        #container {
+            padding-left: 200px;
+            padding-right: 150px;
+            height: 100px;
+        }
+
+        #container .column {
+            float: left;
+            height: 100px;
+        }
+
+        #center {
+            width: 100%;
+            background-color: darkseagreen;
+        }
+
+        #left {
+            width: 200px;
+            background-color: darkorange;
+            margin-left: -100%;
+            position: relative;
+            right: 200px;
+        }
+        /* 这里使用position: relative和right: 200px将left的位置在原有位置基础上左移200px，以完成left的放置： */
+        #right {
+            width: 150px;
+            background-color: darkorchid;
+            margin-right: -150px;
+            /* margin-left:-150px;
+            position:relative; */
+            /* right:-150px; */
+        }
+
+        #footer {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 圣杯布局 -->
+    <!-- 1. DOM结构 -->
+    <div id="header"></div>
+    <div id="container">
+        <div id="center" class="column"></div>
+        <div id="left" class="column"></div>
+        <div id="right" class="column"></div>
+    </div>
+    <div id="footer"></div>
+    <!-- 首先定义出整个布局的DOM结构，主体部分是由container包裹的center,left,right三列，其中center定义在最前面。 -->
+
+    <!-- 至此，布局效果完成。不过还需要考虑最后一步，
+        那就是页面的最小宽度：要想保证该布局效果正常显示，
+        由于两侧都具有固定的宽度，所以需要给定页面一个最小的宽度，
+        但这并不只是简单的200+150=350px。回想之前left使用了position: relative，
+        所以就意味着在center开始的区域，还存在着一个left的宽度。
+        所以页面的最小宽度应该设置为200+150+200=550px： -->
+
+</body>
+
+</html>
