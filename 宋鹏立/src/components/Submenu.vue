@@ -26,9 +26,7 @@ export default {
     return {};
   },
   methods: {},
-  mounted() {
-    console.log(this.shuju);
-  },
+  mounted() {},
 };
 </script>
 

@@ -58,10 +58,8 @@ export default {
   methods: {
     //根据id判断权限 所请求回来的学校列表数据
     getschoolList(id) {
-      console.log(id,"bbbbbbgg")
       getschoolList({ id: id }).then((res) => {
         this.schoolList = res.data.data;
-        console.log(this.schoolList);
         //通过渲染学校的数据 来判断学校 并且给第一个学校默认选中
         // 高新班id为1 末班为id为2 这样就可以知道选择的那个学校
         this.radio =  res.data.data.length > 0 ? res.data.data[0].id: "";
@@ -72,8 +70,6 @@ export default {
     postschoolrouter() {
       // { id: this.radio, userId: this.userId }
       postschoolrouter({ id: this.radio, userId: this.userId }).then((res) => {
-        console.log({ id: this.radio, userId: this.userId })
-        console.log(res,res.data.data);
         //点击确认的时候要把学校的数据也存到本地上
         localStorage.setItem("router", JSON.stringify(res.data.data));
 
