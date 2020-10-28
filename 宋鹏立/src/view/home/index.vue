@@ -42,7 +42,7 @@
     </el-container>
     <Dialog
       :dialogVisible="dialogVisible"
-      :userId="user.data.id"
+      :userId="userId"
       v-on:close="dialogVisible = false"
     />
   </el-container>
@@ -58,7 +58,8 @@ export default {
   name: "Home",
   data() {
     return {
-      user: {},
+      user: JSON.parse(localStorage.getItem("user")) || {},
+      userId: "0",
       //默认选中
       active: "",
       //侧边栏展开
@@ -139,9 +140,7 @@ export default {
   mounted() {
     if (localStorage.getItem("user")) {
       this.user = JSON.parse(localStorage.getItem("user"));
-      console.log(localStorage.getItem("user"),"asasas");
-      console.log(this.user,"cacacaca");
-      console.log(this.user.data.id,"aaaa");
+      this.userId = this.user.data.id;
     } else {
       this.$router.push({ name: "Login" });
     }
